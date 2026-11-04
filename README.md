@@ -4,7 +4,7 @@ Welcome to my personal portfolio repository! This project showcases my technical
 
 My portfolio is designed to introduce who I am, highlight my work, and help recruiters, developers, and professionals connect with me.
 
-🌐 **Live Portfolio:** [Visit My Portfolio](YOUR_PORTFOLIO_URL)
+🌐 **Live Portfolio:** [Visit My Portfolio](https://avn-personal-portfolio-git-main-avn-projects.vercel.app)
 
 ---
 
@@ -212,7 +212,7 @@ Vercel will build and publish the website.
 
 I am always interested in connecting with developers, recruiters, and professionals in the software industry.
 
-- **Portfolio:** YOUR_PORTFOLIO_URL
+- **Portfolio:** https://avn-personal-portfolio-git-main-avn-projects.vercel.app
 - **GitHub:** https://github.com/navyaavidi8305-star
 - **LinkedIn:** https://www.linkedin.com/in/avidi-venkata-narasamma-7a6166369
 - **Email:** navyaavidi8305@gmail.com
