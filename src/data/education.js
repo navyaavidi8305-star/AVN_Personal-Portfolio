@@ -1,0 +1,33 @@
+export const education = [
+  {
+    degree: 'B.Tech — Computer Science and Engineering',
+    institution: 'Malla Reddy Engineering College for Women',
+    location: 'Hyderabad, Telangana',
+    period: 'Expected 2027',
+    status: 'Final Year',
+    score: 'CGPA: 8.81 / 10',
+    cgpa: '8.81',
+    year: 'Final Year',
+    graduationYear: '2027',
+    featured: true,
+    coursework: ['Data Structures', 'Operating Systems', 'DBMS', 'Computer Networks', 'OOP'],
+  },
+  {
+    degree: 'Intermediate — MPC',
+    institution: 'NGJC College',
+    location: 'Hyderabad, Telangana',
+    period: '2021 — 2023',
+    status: 'Completed',
+    score: '89.3%',
+    featured: false,
+  },
+  {
+    degree: 'Secondary School Certificate',
+    institution: 'ZPHS Bachupally',
+    location: 'Hyderabad, Telangana',
+    period: '2021',
+    status: 'Completed',
+    score: '100%',
+    featured: false,
+  },
+]
