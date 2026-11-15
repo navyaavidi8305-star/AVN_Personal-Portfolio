@@ -23,6 +23,41 @@ export const projects = [
       demo: 'https://drivemate-ai.vercel.app',
     },
   },
+  {
+    id: 'careerpilot',
+    index: '02',
+    name: 'CareerPilot AI',
+    subtitle: 'AI-Powered Career Guidance Platform',
+    category: 'Full-stack · AI',
+    accent: 'cyan',
+    featured: false,
+    description:
+      'A full-stack AI-powered career guidance platform that helps students and job seekers achieve career readiness through intelligent resume analysis, ATS scoring, career recommendations, skill gap analysis, and personalized learning roadmaps.',
+    features: [
+      'AI resume analysis and ATS scoring',
+      'Personalized career recommendations',
+      'Skill gap analysis and learning roadmaps',
+      'AI interview coach',
+      'Multilingual learning resources',
+      'Interactive career knowledge graph',
+      'AI career assistant',
+    ],
+    tech: [
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Node.js',
+      'Express',
+      'PostgreSQL',
+      'Prisma',
+      'Google Gemini',
+      'D3.js',
+    ],
+    links: {
+      demo: 'https://career-pilot-ai-iota-vert.vercel.app/',
+      backend: 'https://careerpilot-ai-backend-uekp.onrender.com',
+    },
+  },
 ]
 
 export const projectAccents = {
@@ -31,5 +66,11 @@ export const projectAccents = {
     from: 'from-violet-500/35',
     via: 'via-fuchsia-500/10',
     text: 'text-violet-200',
+  },
+  cyan: {
+    glow: 'rgba(34, 211, 238, 0.32)',
+    from: 'from-cyan-500/35',
+    via: 'via-sky-500/10',
+    text: 'text-cyan-200',
   },
 }

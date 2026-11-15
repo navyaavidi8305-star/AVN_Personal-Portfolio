@@ -1,4 +1,4 @@
-import { ArrowUpRight, Check, ExternalLink } from 'lucide-react'
+import { ArrowUpRight, Check, ExternalLink, Server } from 'lucide-react'
 import { projectAccents, projects } from '../../data/projects'
 import { site } from '../../data/site'
 import { GithubIcon } from '../ui/BrandIcons'
@@ -10,16 +10,18 @@ function ProjectActions({ project }) {
   return (
     <div>
       <div className="flex flex-wrap items-center gap-2.5">
-        <a
-          href={project.links.github}
-          target="_blank"
-          rel="noreferrer noopener"
-          className="btn-secondary px-4 py-2 text-[12px]"
-          aria-label={`${project.name} source code on GitHub (opens in a new tab)`}
-        >
-          <GithubIcon className="size-3.5" />
-          Source code
-        </a>
+        {project.links.github ? (
+          <a
+            href={project.links.github}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="btn-secondary px-4 py-2 text-[12px]"
+            aria-label={`${project.name} source code on GitHub (opens in a new tab)`}
+          >
+            <GithubIcon className="size-3.5" />
+            Source code
+          </a>
+        ) : null}
 
         {project.links.demo ? (
           <a
@@ -42,13 +44,20 @@ function ProjectActions({ project }) {
             Demo not available
           </span>
         )}
-      </div>
 
-      {project.links.demo ? null : (
-        <p className="mt-2 font-mono text-[10px] leading-relaxed text-zinc-400">
-          Live demo placeholder — add a deployment URL in src/data/projects.js
-        </p>
-      )}
+        {project.links.backend ? (
+          <a
+            href={project.links.backend}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="btn-secondary px-4 py-2 text-[12px]"
+            aria-label={`${project.name} backend API (opens in a new tab)`}
+          >
+            <Server className="size-3.5" aria-hidden="true" />
+            Backend API
+          </a>
+        ) : null}
+      </div>
     </div>
   )
 }
@@ -122,8 +131,63 @@ function FeaturedProject({ project }) {
   )
 }
 
+function ProjectCard({ project }) {
+  const accent = projectAccents[project.accent]
+
+  return (
+    <Reveal>
+      <article className="surface surface-hover group flex h-full flex-col overflow-hidden rounded-3xl p-5 sm:p-6">
+        <div className="relative">
+          <div
+            className="pointer-events-none absolute left-1/2 top-1/2 size-64 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+            style={{ backgroundColor: accent.glow }}
+            aria-hidden="true"
+          />
+          <div className="relative transition-transform duration-500 ease-out group-hover:scale-[1.015]">
+            <ProjectPreview project={project} />
+          </div>
+        </div>
+
+        <div className="mt-5 flex flex-1 flex-col">
+          <div className="flex items-center justify-between gap-3">
+            <span className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/[0.08] px-3 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-accent">
+              Project
+            </span>
+            <span className="font-mono text-[11px] tracking-[0.18em] text-zinc-400">
+              {project.index}
+            </span>
+          </div>
+
+          <h3 className="mt-5 font-display text-xl font-semibold tracking-tight text-zinc-100 sm:text-2xl">
+            {project.name}
+          </h3>
+          <p className={`mt-1 text-[13px] font-medium ${accent.text}`}>{project.subtitle}</p>
+          <p className="mt-3 text-[13.5px] leading-relaxed text-zinc-400">{project.description}</p>
+
+          <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+            {project.features.map((feature) => (
+              <li key={feature} className="flex items-start gap-2 text-[12.5px] text-zinc-300">
+                <Check className="mt-0.5 size-3.5 shrink-0 text-accent" aria-hidden="true" />
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-4">
+            <TechList items={project.tech} />
+          </div>
+
+          <div className="mt-auto border-t border-white/[0.06] pt-5">
+            <ProjectActions project={project} />
+          </div>
+        </div>
+      </article>
+    </Reveal>
+  )
+}
+
 export default function Projects() {
-  const featuredProject = projects[0]
+  const [featuredProject, ...otherProjects] = projects
 
   return (
     <section
@@ -135,9 +199,9 @@ export default function Projects() {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading
             id="projects-heading"
-            eyebrow="03 — Featured project"
+            eyebrow="03 — Projects"
             title="Selected work, built from frontend to backend."
-            description="A full-stack application I designed and developed to practice real-world engineering — with authentication, data handling, and a focus on usable interfaces."
+            description="Full-stack applications I designed and developed to practice real-world engineering — from AI-powered platforms to everyday utility tools, with a focus on usable interfaces."
           />
           <Reveal delay={0.1} className="shrink-0">
             <a
@@ -156,6 +220,14 @@ export default function Projects() {
         <div className="mt-10 lg:mt-12">
           <FeaturedProject project={featuredProject} />
         </div>
+
+        {otherProjects.length > 0 ? (
+          <div className="mt-6 grid gap-6 lg:grid-cols-2">
+            {otherProjects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        ) : null}
       </div>
     </section>
   )
