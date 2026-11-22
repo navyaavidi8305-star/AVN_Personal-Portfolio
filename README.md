@@ -39,7 +39,7 @@ My portfolio includes the following sections:
 
 ---
 
-## 🚀 Featured Project
+## 🚀 Featured Projects
 
 ### DriveMate AI – Vehicle Management System
 
@@ -66,6 +66,42 @@ The application focuses on simplifying vehicle maintenance, document management,
 
 - 🌐 **Live Demo:** [View DriveMate AI](https://drivemate-ai.vercel.app)
 - 💻 **Source Code:** [GitHub Repository](https://github.com/navyaavidi8305-star/DriveMate_AI)
+
+### CareerPilot AI – AI-Powered Career Guidance Platform
+
+CareerPilot AI is a full-stack, AI-powered career guidance application designed to help students and job seekers improve their career readiness through personalized career development solutions.
+
+The application focuses on simplifying resume analysis, identifying skill gaps, providing career recommendations, and guiding users through personalized learning roadmaps.
+
+**Key Features:**
+
+- AI-powered resume analysis and ATS scoring.
+- Personalized career recommendations.
+- Skill gap identification and analysis.
+- Customized learning roadmaps.
+- AI-powered interview preparation and feedback.
+- Multilingual learning resources in English, Telugu, and Hindi.
+- Interactive career knowledge graph.
+- AI career assistant for career-related queries.
+- Track learning activities and career progress.
+
+**Technologies Used:**
+
+- React
+- TypeScript
+- Tailwind CSS
+- Node.js
+- Express.js
+- PostgreSQL
+- Prisma ORM
+- Google Gemini
+- D3.js
+- Recharts
+
+**Project Links:**
+
+- 🌐 **Live Demo:** [Explore CareerPilot AI](https://career-pilot-ai-iota-vert.vercel.app/)
+- 💻 **Source Code:** [GitHub Repository](https://github.com/navyaavidi8305-star/CareerPilot_AI)
 
 ---
 

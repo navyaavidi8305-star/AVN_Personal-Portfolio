@@ -193,7 +193,7 @@ export default function Hero() {
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-3">
             <a href="#projects" className="btn-primary">
-              View My Project
+              View My Projects
               <ArrowUpRight className="size-4" aria-hidden="true" />
             </a>
             <ResumeButton className="btn-secondary" />

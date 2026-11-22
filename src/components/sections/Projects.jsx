@@ -95,7 +95,7 @@ function FeaturedProject({ project }) {
           <div className="flex flex-col border-t border-white/[0.06] p-6 sm:p-7 lg:border-l lg:border-t-0 lg:p-8">
             <div className="flex items-center justify-between gap-3">
               <span className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/[0.08] px-3 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-accent">
-                Featured project
+                {project.featured ? 'Featured project' : 'Project'}
               </span>
               <span className="font-mono text-[11px] tracking-[0.18em] text-zinc-400">
                 {project.index}
@@ -131,64 +131,7 @@ function FeaturedProject({ project }) {
   )
 }
 
-function ProjectCard({ project }) {
-  const accent = projectAccents[project.accent]
-
-  return (
-    <Reveal>
-      <article className="surface surface-hover group flex h-full flex-col overflow-hidden rounded-3xl p-5 sm:p-6">
-        <div className="relative">
-          <div
-            className="pointer-events-none absolute left-1/2 top-1/2 size-64 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
-            style={{ backgroundColor: accent.glow }}
-            aria-hidden="true"
-          />
-          <div className="relative transition-transform duration-500 ease-out group-hover:scale-[1.015]">
-            <ProjectPreview project={project} />
-          </div>
-        </div>
-
-        <div className="mt-5 flex flex-1 flex-col">
-          <div className="flex items-center justify-between gap-3">
-            <span className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/[0.08] px-3 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-accent">
-              Project
-            </span>
-            <span className="font-mono text-[11px] tracking-[0.18em] text-zinc-400">
-              {project.index}
-            </span>
-          </div>
-
-          <h3 className="mt-5 font-display text-xl font-semibold tracking-tight text-zinc-100 sm:text-2xl">
-            {project.name}
-          </h3>
-          <p className={`mt-1 text-[13px] font-medium ${accent.text}`}>{project.subtitle}</p>
-          <p className="mt-3 text-[13.5px] leading-relaxed text-zinc-400">{project.description}</p>
-
-          <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-            {project.features.map((feature) => (
-              <li key={feature} className="flex items-start gap-2 text-[12.5px] text-zinc-300">
-                <Check className="mt-0.5 size-3.5 shrink-0 text-accent" aria-hidden="true" />
-                {feature}
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-4">
-            <TechList items={project.tech} />
-          </div>
-
-          <div className="mt-auto border-t border-white/[0.06] pt-5">
-            <ProjectActions project={project} />
-          </div>
-        </div>
-      </article>
-    </Reveal>
-  )
-}
-
 export default function Projects() {
-  const [featuredProject, ...otherProjects] = projects
-
   return (
     <section
       id="projects"
@@ -217,17 +160,11 @@ export default function Projects() {
           </Reveal>
         </div>
 
-        <div className="mt-10 lg:mt-12">
-          <FeaturedProject project={featuredProject} />
+        <div className="mt-10 space-y-6 lg:mt-12">
+          {projects.map((project) => (
+            <FeaturedProject key={project.id} project={project} />
+          ))}
         </div>
-
-        {otherProjects.length > 0 ? (
-          <div className="mt-6 grid gap-6 lg:grid-cols-2">
-            {otherProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-        ) : null}
       </div>
     </section>
   )

@@ -55,7 +55,7 @@ export const projects = [
     ],
     links: {
       demo: 'https://career-pilot-ai-iota-vert.vercel.app/',
-      backend: 'https://careerpilot-ai-backend-uekp.onrender.com',
+      backend: 'https://careerpilot-ai-backend-uekp.onrender.com/api/health',
     },
   },
 ]
